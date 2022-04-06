@@ -12,7 +12,7 @@ export interface SEOProps {
 export default function SEO({
   title,
   description = 'I\'m a Junior Frontend Developer and I\'m passionate about building web applications using Reactjs.',
-  image = '/banner.png',
+  image = 'https://www.andriann.co/banner.jpg',
   url = 'https://andriann.co',
 }: SEOProps): React.ReactElement {
   return (
