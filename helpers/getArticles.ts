@@ -2,10 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-type Limit = number | undefined;
-type Skip = number | undefined;
-
-const getArticles = async (limit: Limit, skip: Skip = 0): Promise<any> => {
+const getArticles = async (limit: number | undefined, skip: number | undefined = 0): Promise<any> => {
   const dirFiles = fs.readdirSync(path.join(process.cwd(), '/pages/article'), {
     withFileTypes: true,
   });
@@ -29,7 +26,7 @@ const getArticles = async (limit: Limit, skip: Skip = 0): Promise<any> => {
   }).filter((article) => article).sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   if (limit) {
-    return Promise.resolve(articles.slice(skip, skip + limit));
+    return Promise.resolve(articles.slice(skip || 0, (skip || 0) + limit));
   }
 
   return Promise.resolve(articles);

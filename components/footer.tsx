@@ -57,7 +57,7 @@ export default function Footer(): React.ReactElement {
       <Container className="p-0">
         <Container id="footer-link-container" className="flex flex-row pb-0 pt-0 md:pt-4">
           <ul className="w-1/2">
-            {footerLinks.map((footerLink: FooterLinkType) => (
+            {socialMediaLinks.map((footerLink: FooterLinkType) => (
               <li key={footerLink.title} className="w-full my-4">
                 <Link href={footerLink.href} passHref>
                   <a className="hover:text-blue-500 block py-1 text-sm md:text-base">{footerLink.title}</a>
@@ -67,7 +67,7 @@ export default function Footer(): React.ReactElement {
           </ul>
 
           <ul className="w-1/2">
-            {socialMediaLinks.map((footerLink: FooterLinkType) => (
+            {footerLinks.map((footerLink: FooterLinkType) => (
               <li key={footerLink.title} className="w-full my-4">
                 <Link href={footerLink.href} passHref>
                   <a className="hover:text-blue-500 block py-1 text-sm md:text-base">{footerLink.title}</a>

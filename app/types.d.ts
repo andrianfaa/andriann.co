@@ -10,3 +10,9 @@ export interface ArticleType {
   slug: string;
   excerpt: string;
 }
+
+export interface DefaultApiResponse<T> {
+  status: 'ok' | 'error';
+  message?: string;
+  data?: T;
+}
