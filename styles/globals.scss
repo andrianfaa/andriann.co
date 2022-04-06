@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  body {
+    @apply font-sans text-base;
+    @apply text-gray-400 bg-slate-900;
+  }
+
+  button,
+  input,
+  textarea {
+    @apply disabled:cursor-not-allowed disabled:opacity-50
+  }
+}
+
+@layer components {
+  // Button
+  .btn-primary {
+    @apply transition-all duration-300 ease-in-out;
+    @apply py-3 px-5 rounded-lg font-medium tracking-tight;
+    @apply bg-blue-500 hover:bg-blue-700 text-white;
+  }
+
+  // Input
+  .input-base {
+    @apply transition-[border] duration-300;
+    @apply rounded-md border bg-slate-800 border-slate-800 text-slate-100 py-3 px-5 hover:border-slate-500 focus:border-slate-500;
+  }
+
+  // Article
+  .article {
+    &-container {
+      @apply flex flex-col sm:flex-row sm:flex-wrap gap-4;
+    }
+
+    &-card {
+      @apply transition-all duration-300 ease-in-out;
+      @apply border border-slate-800 cursor-pointer w-full flex flex-row items-center;
+      @apply hover:shadow-md hover:border-slate-600;
+
+      @screen sm {
+        max-width: calc(100% / 2 - .5rem);
+      }
+    }
+  }
+}
+
+@layer utilities {
+  .heading-1 {
+    @apply text-3xl md:text-4xl tracking-tight font-semibold mb-2 md:mb-3 text-gray-100;
+  }
+
+  .heading-2 {
+    @apply text-2xl md:text-3xl tracking-tight font-semibold mb-2 md:mb-3 text-gray-100;
+  }
+
+  .heading-3 {
+    @apply text-lg md:text-xl tracking-tight font-semibold mb-2 md:mb-3 text-gray-100;
+  }
+}
+
+.fade-up {
+  animation: fade-up .5s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
