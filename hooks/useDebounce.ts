@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
 export interface UseDebounceProps<T> {
-  value: T | undefined;
+  value: T;
   delay: number;
 }
 
-export default function useDebounce<T>(value: T | undefined, delay: number): T | undefined {
+export default function useDebounce<T>(value: T, delay: number): T {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {

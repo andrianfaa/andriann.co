@@ -1,26 +1,40 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/no-img-element */
 import React, { useCallback } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import axios from 'redaxios';
+import {
+  Container, SEO, Footer, ArticleCard,
+} from '@/components';
 
-import { Container, SEO, Footer } from '@/components';
-import getArticles from '@/helpers/getArticles';
-import { ArticleType } from '@/app/types';
+import config from '@/app/config';
+import { ArticleType, DefaultApiResponse } from '@/app/types';
+
+import { FiArrowRight } from 'react-icons/fi';
+
+interface Props {
+  articles: ArticleType[];
+}
 
 export async function getServerSideProps() {
-  const latestArticle = await getArticles(2, 0);
+  const apiKey = process.env.API_KEY as string;
+  const response = await axios<DefaultApiResponse<ArticleType[]>>({
+    method: 'GET',
+    url: config.baseUrl('/api/v1/article'),
+    headers: {
+      'x-api-key': apiKey,
+    },
+  });
 
   return {
     props: {
-      articles: latestArticle,
+      articles: response.data.data,
     },
   };
 }
 
-export default function Home({ articles }: any): React.ReactElement {
+export default function Home({ articles }: Props): React.ReactElement {
   const router = useRouter();
 
   const handleOnClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
@@ -28,15 +42,23 @@ export default function Home({ articles }: any): React.ReactElement {
     router.push('/about');
   }, [router]);
 
+  const data = {
+    profileImage: 'https://avatars.githubusercontent.com/u/74356783?v=4',
+    name: 'Andrian Fadhilla',
+    role: 'Frontend Developer',
+    description: 'I\'m a frontend developer based in Bekasi, Indonesia. I\'m passionate about building web applications with Reactjs',
+  };
+
   return (
     <>
-      <SEO title="Andrian Fadhilla" />
+      <SEO title={data.name} description={data.description} />
 
       <Container className="min-h-[400px] fade-up">
         <header className="flex flex-col sm:flex-row-reverse justify-start sm:justify-between items-center py-6 sm:min-h-[350px]">
           <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
             <Image
-              src="https://avatars.githubusercontent.com/u/74356783?v=4"
+              src={data.profileImage}
+              priority
               alt="Andrian Fadhilla"
               width={200}
               height={200}
@@ -47,12 +69,10 @@ export default function Home({ articles }: any): React.ReactElement {
 
           {/* Text */}
           <div className="w-full sm:max-w-[500px] text-center sm:text-left">
-            <h1 className="heading-1 text-center sm:text-left text-gray-100">Andrian Fadhilla</h1>
-            <h2 className="text-center sm:text-left my-2 text-blue-500 font-semibold">Frontend Developer</h2>
-            <p className="text-center sm:text-left md:max-w-[500px]">
-              I'm a frontend developer based in Bekasi, Indonesia. I'm passionate
-              {' '}
-              about building web applications with Reactjs
+            <h1 className="heading-1 text-gray-100">{data.name}</h1>
+            <h2 className="my-2 text-blue-500 font-semibold">{data.role}</h2>
+            <p className=" md:max-w-[500px]">
+              {data.description}
             </p>
 
             <button
@@ -67,35 +87,18 @@ export default function Home({ articles }: any): React.ReactElement {
 
         {/* Latest Article */}
         <Container className="px-0">
-          <h2 className="heading-2 text-gray-100">Latest Article</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="heading-2 mb-0 md:mb-0 text-custom-text-light">Latest Article</h2>
+
+            <Link href="/article" passHref>
+              <a className="hover:text-primary group">More Article <FiArrowRight className="text-base align-middle inline group-hover:ml-1 transition-all duration-300" /></a>
+            </Link>
+          </div>
 
           <div className="article-container mt-4">
-            {articles.flatMap((article: ArticleType) => {
-              const date = new Date(article.date);
-
-              return (
-                <Link href={article.url} key={article.slug} passHref>
-                  <article className="article-card rounded-md">
-                    <figure className="aspect-square w-[140px]">
-                      <Image
-                        src={article.image}
-                        alt={article.title}
-                        width={800}
-                        height={800}
-                        layout="responsive"
-                        className="aspect-square object-cover rounded-tl-md rounded-bl-md"
-                      />
-                    </figure>
-
-                    <div id="article-content" className="block flex-1 p-4 relative">
-                      <h3 className="heading-3 text-gray-100">{article.title}</h3>
-                      <small className="line-clamp-2 leading-5 mb-1 text-sm">{`${article.excerpt}`}</small>
-                      <time dateTime={article.date} className=" text-xs">{date.toDateString()}</time>
-                    </div>
-                  </article>
-                </Link>
-              );
-            })}
+            {articles.flatMap((article: ArticleType) => (
+              <ArticleCard key={article.id} {...article} />
+            ))}
           </div>
         </Container>
       </Container>

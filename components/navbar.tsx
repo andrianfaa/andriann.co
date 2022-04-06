@@ -46,7 +46,7 @@ export default function Navbar(): React.ReactElement {
           {navigationLinks.flatMap(({ title, href, isActive }) => (
             <li key={title}>
               <Link href={href} passHref>
-                <span className={`cursor-pointer font-medium transition-all duration-300 ease-in-out inline-block py-1 px-2.5 rounded text-sm hover:text-white ${isActive ? 'text-white bg-slate-50 bg-opacity-10' : ''}`}>{title}</span>
+                <span className={`cursor-pointer font-medium transition-all duration-300 ease-in-out inline-block py-1 px-2.5 rounded text-sm hover:text-custom-text-light ${isActive ? 'text-custom-text-light bg-slate-50 bg-opacity-10' : ''}`}>{title}</span>
               </Link>
             </li>
           ))}

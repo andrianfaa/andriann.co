@@ -21,9 +21,9 @@ export default function ContentHeader({ title, description, imgSrc }: ContentHea
               alt={title}
               width={1280}
               height={720}
+              priority
               className="w-full h-full rounded-md aspect-video"
               layout="responsive"
-              loading="lazy"
             />
           </figure>
         )}
