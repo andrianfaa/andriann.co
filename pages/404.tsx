@@ -19,6 +19,14 @@ export default function ErrorPage() {
         title="Error 404 Page Not Found"
         description="The page you are looking for does not exist. Please check the URL or go back to the homepage."
         url={`https://andriann.co${router.asPath}`}
+        keywords={[
+          'Error 404',
+          'Page Not Found',
+          '404',
+          'Not Found',
+          'Not Found Page',
+          'Page Not Found Page',
+        ]}
       />
       <Container className="min-h-[400px] flex items-center justify-center fade-up">
         <div className="text-center mb-8">

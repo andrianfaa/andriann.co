@@ -33,7 +33,7 @@ export default function Navbar(): React.ReactElement {
     {
       title: 'Portfolio',
       href: '/portfolio',
-      isActive: pathname === '/portfolio',
+      isActive: pathname.startsWith('/portfolio'),
     },
   ];
 

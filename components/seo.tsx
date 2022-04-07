@@ -6,6 +6,7 @@ export interface SEOProps {
   title: string;
   description?: string;
   image?: string;
+  keywords?: string[];
   url?: string;
 }
 
@@ -14,12 +15,14 @@ export default function SEO({
   description = 'I\'m a Junior Frontend Developer and I\'m passionate about building web applications using Reactjs.',
   image = 'https://www.andriann.co/banner.jpg',
   url = 'https://andriann.co',
+  keywords = ['Andrian', 'Fadhilla', 'Andrian Fadhilla'],
 }: SEOProps): React.ReactElement {
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="keywords" content={keywords.join(', ')} />
 
       {/*  Open Graph / Facebook */}
       <meta property="og:type" content="website" />
