@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import Head from 'next/head';
@@ -39,6 +40,9 @@ export default function SEO({
       <meta property="twitter:image" content={image} />
 
       <link rel="canonical" href={url} />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
     </Head>
   );
 }
