@@ -3,16 +3,22 @@
 @tailwind utilities;
 @tailwind variants;
 
+// Base styles
 @layer base {
   body {
     @apply font-sans text-base;
-    @apply text-custom-text bg-slate-900;
+    @apply text-custom-text bg-slate-900 leading-relaxed;
   }
 
   button,
   input,
   textarea {
-    @apply disabled:cursor-not-allowed disabled:opacity-50
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  pre,
+  code {
+    @apply font-mono;
   }
 }
 
@@ -32,7 +38,7 @@
 
   // Article
   .article {
-    &-container {
+    &-row {
       @apply flex flex-col sm:flex-row sm:flex-wrap gap-4;
     }
 
@@ -42,28 +48,65 @@
       @apply hover:shadow-md hover:border-slate-600;
 
       @screen sm {
-        max-width: calc(100% / 2 - .5rem);
+        max-width: calc(100% / 2 - 0.5rem);
+      }
+    }
+  }
+
+  // Portfolio
+  .portfolio {
+    &-row {
+      @apply flex flex-col sm:flex-row sm:flex-wrap gap-4;
+    }
+
+    &-card {
+      @apply transition-all duration-300 ease-in-out;
+      @apply border border-slate-800 cursor-pointer w-full flex flex-row items-center rounded-md;
+      @apply hover:shadow-md hover:border-slate-600;
+
+      > a {
+        @apply flex flex-col items-center justify-center;
+      }
+
+      @screen sm {
+        max-width: calc(100% / 2 - 0.5rem);
       }
     }
   }
 }
 
-@layer utilities {
-  .heading-1 {
-    @apply text-3xl md:text-4xl tracking-tight font-semibold mb-2 md:mb-3 text-custom-text-light;
+// Images
+.images {
+  &-row {
+    @apply flex flex-col sm:flex-row sm:flex-wrap gap-4;
   }
 
-  .heading-2 {
-    @apply text-2xl md:text-3xl tracking-tight font-semibold mb-2 md:mb-3 text-custom-text-light;
-  }
+  &-item {
+    @apply transition-all duration-300 ease-in-out;
+    @apply w-full;
 
-  .heading-3 {
-    @apply text-lg md:text-xl tracking-tight font-semibold mb-2 md:mb-3 text-custom-text-light;
+    @screen sm {
+      max-width: calc(100% / 2 - 0.5rem);
+    }
   }
 }
 
+// Heading
+.heading-1 {
+  @apply text-3xl md:text-4xl tracking-tight font-semibold mb-2 md:mb-3 text-custom-text-light;
+}
+
+.heading-2 {
+  @apply text-2xl md:text-3xl tracking-tight font-semibold mb-2 md:mb-3 text-custom-text-light;
+}
+
+.heading-3 {
+  @apply text-lg md:text-xl tracking-tight font-semibold mb-2 md:mb-3 text-custom-text-light;
+}
+
+// Animation
 .fade-up {
-  animation: fade-up .5s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+  animation: fade-up 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
 }
 
 @keyframes fade-up {

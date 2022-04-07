@@ -43,7 +43,24 @@ export default function ErrorPage() {
 
   return (
     <>
-      <SEO title="About | Andrian Fadhilla" />
+      <SEO
+        title="About | Andrian Fadhilla"
+        description="Andrian Fadhilla is a Frontend Developer based in Bekasi, Indonesia. Passionate about building web applications with Reactjs."
+        url="https://andrian.co/about"
+        keywords={[
+          'About',
+          'About Me',
+          'About Me Page',
+          'About Page',
+          'About Me Page',
+          'About Page',
+          'Andrian Fadhilla',
+          'Andrian Fadhilla Page',
+          'Andrian',
+          'Frontend Developer',
+          'Frontend Developer Page',
+        ]}
+      />
 
       <Container className="fade-up min-h-[400px]">
         <header className="flex flex-col sm:flex-row-reverse justify-start sm:justify-between items-center py-6 sm:min-h-[350px]">

@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
 import { FiCopy, FiCheck } from 'react-icons/fi';
@@ -8,10 +7,9 @@ interface PreProps {
 }
 
 export function Pre({ children }: PreProps): React.ReactElement {
-  const [isCopied, setIsCopied] = React.useState(false);
+  const [isCopied, setIsCopied] = React.useState<boolean>(false);
 
   const lang = children?.props.className.replace(/language-/, '');
-
   /**
    * Copy to clipboard
    */
@@ -51,7 +49,7 @@ export function Pre({ children }: PreProps): React.ReactElement {
 
   return (
     <div className="relative rounded-md text-sm bg-slate-800 text-slate-100 mb-4">
-      <div className="bg-blue-500 rounded-tr-md rounded-tl-md px-4 py-1 font-mono font-semibold">
+      <div className="bg-slate-700 inline rounded-tl-md px-4 py-1 font-mono font-semibold absolute top-0 left-0 z-10">
         {lang}
       </div>
 
@@ -59,7 +57,9 @@ export function Pre({ children }: PreProps): React.ReactElement {
         type="button"
         onClick={handeCopy}
         disabled={isCopied}
-        className="absolute top-0 right-0 mr-4 mt-10 h-10 w-10 rounded-md flex items-center justify-center btn-primary p-0 disabled:opacity-100"
+        className="absolute top-0 right-0 mr-2 mt-2 h-10 w-10 rounded-md border border-slate-700 flex items-center justify-center p-0 disabled:opacity-100"
+        title="Copy to clipboard"
+        aria-label="Copy to clipboard"
       >
         {isCopied ? (
           <FiCheck className="w-5 h-5" />
@@ -67,7 +67,7 @@ export function Pre({ children }: PreProps): React.ReactElement {
           <FiCopy className="w-5 h-5" />
         )}
       </button>
-      <pre className="overflow-x-auto px-4 py-5 focus:outline-none">
+      <pre className="overflow-x-auto font-mono px-4 pt-12 pb-5 focus:outline-none">
         {children}
       </pre>
     </div>

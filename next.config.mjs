@@ -25,7 +25,7 @@ export default withPwa({
     return config;
   },
   images: {
-    domains: ['avatars.githubusercontent.com', 'og-image.vercel.app'],
+    domains: ['avatars.githubusercontent.com', 'og-image.vercel.app', 'images.unsplash.com'],
   },
   pwa: {
     runtimeCaching,
@@ -35,9 +35,3 @@ export default withPwa({
     disable: process.env.NODE_ENV === 'development',
   },
 });
-
-// const nextConfig = {
-//   reactStrictMode: true,
-// };
-
-// module.exports = nextConfig;

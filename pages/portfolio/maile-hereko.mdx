@@ -1,0 +1,64 @@
+---
+id: "7b0743ab-ba33-4ded-80b7-2295cde0d01b" # https://www.uuidgenerator.net/
+title: "Maile Hereko"
+description: "Maile Hereko is a Movie and TV Show web application that allows users to search for movies and TV shows"
+image: "/thumbnail/portfolio/maile-hereko.png"
+slug: "maile-hereko"
+url: "/portfolio/maile-hereko"
+tags: ["React", "sass", "redux-toolkit"]
+categories: ["web"]
+---
+
+import { SEO, Container, Footer } from "@/components";
+import Link from "next/link";
+import Image from "next/image";
+import { FiArrowLeft } from "react-icons/fi";
+
+<SEO
+  title="Maile Hereko | Portfolio"
+  description="Maile Hereko is a Movie and TV Show web application that allows users to search for movies and TV shows"
+  url="https://andriann.co/portfolio/maile-hereko"
+  image="https://andriann.co/thumbnail/portfolio/maile-hereko.png"
+  keywords={[
+    "Maile Hereko",
+    "Movie and TV Show",
+    "Web Application",
+    "React",
+    "sass",
+    "redux-toolkit"
+  ]}
+/>
+
+<Container className="min-h-[400px] fade-up">
+
+<Link href="/portfolio" passHref>
+  <a className="text-blue-500">
+    <FiArrowLeft className="inline align-middle text-base mr-2" />
+    <span>Back to Portfolio</span>
+  </a>
+</Link>
+
+<div id="spacer" className="mt-6 block" />
+
+# Maile Hereko
+
+Maile Hereko is a Movie and TV Show web application that allows users to search for movies and TV shows.
+
+<figure className="aspect-video w-full max-w-lg mx-auto rounded-md mb-6">
+  <Image
+    src="/thumbnail/portfolio/maile-hereko.png"
+    alt="Maile Hereko"
+    width={1280}
+    height={720}
+    priority
+    className="w-full h-full rounded-md aspect-video"
+    layout="responsive"
+  />
+</figure>
+
+you can find the source code on : [Github](https://github.com/andrianfaa/Movie-App)
+
+and the demo on : [Live Demo](http://mailehereko.project.andriann.co/)
+
+</Container>
+<Footer />

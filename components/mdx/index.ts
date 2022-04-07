@@ -3,6 +3,7 @@ import Code from './code';
 import { H1, H2 } from './headline';
 import Paragraph from './paragraph';
 import { Pre } from './pre';
+import Anchor from './anchor';
 
 const MDXComponents = {
   h1: H1,
@@ -10,6 +11,7 @@ const MDXComponents = {
   pre: Pre,
   p: Paragraph,
   code: Code,
+  a: Anchor,
 } as any;
 
 export default MDXComponents;

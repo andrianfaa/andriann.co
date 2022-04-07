@@ -60,7 +60,7 @@ export default function Footer(): React.ReactElement {
             {socialMediaLinks.map((footerLink: FooterLinkType) => (
               <li key={footerLink.title} className="w-full my-4">
                 <Link href={footerLink.href} passHref>
-                  <a className="hover:text-blue-500 block py-1 text-sm md:text-base">{footerLink.title}</a>
+                  <a className="hover:text-blue-500 my-2 text-sm md:text-base">{footerLink.title}</a>
                 </Link>
               </li>
             ))}
@@ -70,7 +70,7 @@ export default function Footer(): React.ReactElement {
             {footerLinks.map((footerLink: FooterLinkType) => (
               <li key={footerLink.title} className="w-full my-4">
                 <Link href={footerLink.href} passHref>
-                  <a className="hover:text-blue-500 block py-1 text-sm md:text-base">{footerLink.title}</a>
+                  <a className="hover:text-blue-500 my-2 text-sm md:text-base">{footerLink.title}</a>
                 </Link>
               </li>
             ))}

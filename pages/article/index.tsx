@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useCallback, useMemo } from 'react';
-import config from '@/app/config';
-import axios from 'redaxios';
 import {
   Container, SEO, Footer, ArticleCard,
 } from '@/components';
@@ -9,20 +7,14 @@ import type { ArticleType, DefaultApiResponse } from '@/app/types';
 import { useDebounce } from '@/hooks';
 
 import { FiSearch } from 'react-icons/fi';
+import { Fetch } from '@/utils';
 
 interface Props {
   articles: ArticleType[];
 }
 
 export async function getServerSideProps() {
-  const apiKey = process.env.API_KEY as string;
-  const response = await axios<DefaultApiResponse<ArticleType[]>>({
-    method: 'GET',
-    url: `${config.baseUrl('/api/v1/article')}`,
-    headers: {
-      'x-api-key': apiKey,
-    },
-  });
+  const response = await Fetch<DefaultApiResponse<ArticleType[]>>('/api/v1/article', 'get');
 
   return {
     props: {
@@ -61,7 +53,22 @@ export default function Article({ articles }: Props): React.ReactElement {
 
   return (
     <>
-      <SEO title="Article | Andrian Fadhilla" />
+      <SEO
+        title="Article | Andrian Fadhilla"
+        description="List of articles I've written."
+        url="https://andriann.co/article"
+        keywords={[
+          'Andrian Fadhilla',
+          'Andrian Fadhilla Blog',
+          'Andrian Fadhilla Blog Articles',
+          'Andrian Fadhilla Blog Article',
+          'Andrian Fadhilla Blog Article List',
+          'Article',
+          'Blog',
+          'Blog Articles',
+          'Blog Article',
+        ]}
+      />
       <Container className="min-h-[400px] fade-up">
         <h1 className="heading-1 text-custom-text-light">Article</h1>
         <p>
@@ -71,7 +78,7 @@ export default function Article({ articles }: Props): React.ReactElement {
         <Container className="px-0 relative flex items-center">
           <FiSearch className="absolute text-lg left-3" />
           <input
-            type="text"
+            type="search"
             className="input-base w-full max-w-[500px] pl-10 focus:outline-none"
             placeholder="Search"
             onChange={handleSearch}
@@ -79,13 +86,15 @@ export default function Article({ articles }: Props): React.ReactElement {
         </Container>
 
         {filteredArticles && filteredArticles.length > 0 ? (
-          <div className="article-container fade-up">
+          <div className="article-row fade-up">
             {filteredArticles.flatMap((article: ArticleType) => (
               <ArticleCard key={article.id} {...article} />
             ))}
           </div>
         ) : (
-          <p>Article not found</p>
+          <p>
+            No article found.
+          </p>
         )}
       </Container>
       <Footer />

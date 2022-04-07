@@ -3,38 +3,33 @@ import React, { useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
-import axios from 'redaxios';
+import { Fetch } from '@/utils';
 import {
-  Container, SEO, Footer, ArticleCard,
+  Container, SEO, Footer, ArticleCard, PortfolioCard,
 } from '@/components';
 
-import config from '@/app/config';
-import { ArticleType, DefaultApiResponse } from '@/app/types';
+import type { ArticleType, PortfolioType, DefaultApiResponse } from '@/app/types';
 
 import { FiArrowRight } from 'react-icons/fi';
 
 interface Props {
   articles: ArticleType[];
+  portfolios: PortfolioType[];
 }
 
 export async function getServerSideProps() {
-  const apiKey = process.env.API_KEY as string;
-  const response = await axios<DefaultApiResponse<ArticleType[]>>({
-    method: 'GET',
-    url: config.baseUrl('/api/v1/article'),
-    headers: {
-      'x-api-key': apiKey,
-    },
-  });
+  const articles = await Fetch<DefaultApiResponse<ArticleType[]>>('/api/v1/article?limit=4&offset=0', 'get');
+  const portfolios = await Fetch<DefaultApiResponse<PortfolioType[]>>('/api/v1/portfolio?limit=4&offset=0', 'get');
 
   return {
     props: {
-      articles: response.data.data,
+      articles: articles.data.data,
+      portfolios: portfolios.data.data,
     },
   };
 }
 
-export default function Home({ articles }: Props): React.ReactElement {
+export default function Home({ articles, portfolios }: Props): React.ReactElement {
   const router = useRouter();
 
   const handleOnClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
@@ -51,7 +46,23 @@ export default function Home({ articles }: Props): React.ReactElement {
 
   return (
     <>
-      <SEO title={data.name} description={data.description} />
+      <SEO
+        title={data.name}
+        description={data.description}
+        url="https://andriann.co/"
+        keywords={[
+          'Andrian Fadhilla',
+          'Andrian Fadhilla Profile',
+          'Andrian Fadhilla Portfolio',
+          'Andrian Fadhilla Blog',
+          'Andrian Fadhilla Resume',
+          'Andrian Fadhilla CV',
+          'Portfolio',
+          'Blog',
+          'Resume',
+          'CV',
+        ]}
+      />
 
       <Container className="min-h-[400px] fade-up">
         <header className="flex flex-col sm:flex-row-reverse justify-start sm:justify-between items-center py-6 sm:min-h-[350px]">
@@ -88,16 +99,33 @@ export default function Home({ articles }: Props): React.ReactElement {
         {/* Latest Article */}
         <Container className="px-0">
           <div className="flex items-center justify-between">
-            <h2 className="heading-2 mb-0 md:mb-0 text-custom-text-light">Latest Article</h2>
+            <h2 className="heading-2 mb-0 text-custom-text-light">Latest Article</h2>
 
             <Link href="/article" passHref>
-              <a className="hover:text-primary group">More Article <FiArrowRight className="text-base align-middle inline group-hover:ml-1 transition-all duration-300" /></a>
+              <a className="hover:text-primary group mb-2">More Article <FiArrowRight className="text-base align-middle inline group-hover:ml-1 transition-all duration-300" /></a>
             </Link>
           </div>
 
-          <div className="article-container mt-4">
+          <div className="article-row mt-4">
             {articles.flatMap((article: ArticleType) => (
               <ArticleCard key={article.id} {...article} />
+            ))}
+          </div>
+        </Container>
+
+        {/* Portfolio */}
+        <Container className="px-0">
+          <div className="flex items-center justify-between">
+            <h2 className="heading-2 mb-0 text-custom-text-light">Latest Portfolio</h2>
+
+            <Link href="/portfolio" passHref>
+              <a className="hover:text-primary group mb-2">View all <FiArrowRight className="text-base align-middle inline group-hover:ml-1 transition-all duration-300" /></a>
+            </Link>
+          </div>
+
+          <div className="portfolio-row mt-4">
+            {portfolios.flatMap((portfolio: PortfolioType) => (
+              <PortfolioCard key={portfolio.id} {...portfolio} />
             ))}
           </div>
         </Container>

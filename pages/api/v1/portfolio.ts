@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { ArticleType, DefaultApiResponse } from '@/app/types';
+import type { DefaultApiResponse, PortfolioType } from '@/app/types';
 import { apiKey } from '@/middlewares';
-import { getArticles } from '@/helpers';
+import { getPortfolio } from '@/helpers';
 
-export default async function get(
+export default async function Portfolio(
   req: NextApiRequest,
-  res: NextApiResponse<DefaultApiResponse<ArticleType[]>>,
+  res: NextApiResponse<DefaultApiResponse<PortfolioType[]>>,
 ): Promise<void> {
   // Step 1: Validate the API key
   const checkApiKey = await apiKey(req);
@@ -20,10 +20,17 @@ export default async function get(
   // End Step 1
 
   // Step 2: Get the articles
-  const { query } = req;
-  const { limit, offset } = query as unknown as { limit?: number, offset?: number };
+  const { limit, offset } = req.query as { limit?: string; offset?: string };
 
-  const { length: total } = await getArticles();
+  const { length: total } = await getPortfolio();
+
+  if (total === 0) {
+    res.status(404).json({
+      status: 'error',
+      message: 'no portfolios found',
+    });
+    return;
+  }
 
   if (limit && offset) {
     const limitNumber = Number(limit);
@@ -46,13 +53,13 @@ export default async function get(
     }
 
     // Step 2.1: Get the articles with limit and offset
-    const articles = await getArticles(limit, (offset || 0));
+    const portfolios = await getPortfolio(limitNumber, offset ? Number(offset) : 0);
 
-    if (articles && articles.length > 0) {
+    if (portfolios && portfolios.length > 0) {
       res.status(200).json({
         status: 'ok',
         message: 'Success',
-        data: articles,
+        data: portfolios,
         total,
       });
       return;
@@ -60,19 +67,18 @@ export default async function get(
 
     res.status(404).json({
       status: 'error',
-      message: 'Not found',
+      message: 'no portfolios found',
     });
     return;
   }
 
   // Step 2.2: Get all the articles with limit = 10 and offset = 0
-  const articles = await getArticles(10, 0);
+  const portfolios = await getPortfolio(10, 0);
 
   res.status(200).json({
     status: 'ok',
-    message: 'Articles fetched successfully',
-    data: articles,
+    message: 'portfolios fetched successfully',
+    data: portfolios,
     total,
   });
-  // End Step 2
 }
