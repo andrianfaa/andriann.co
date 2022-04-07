@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "lint_staged": "lint-staged"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.0.0-rc.2",
@@ -19,6 +20,7 @@
     "next-pwa": "^5.4.7",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.4.3",
+    "prettier": "^2.6.2",
     "prismjs": "^1.27.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
@@ -56,7 +58,7 @@
       "eslint --fix"
     ],
     "**/*.{css,scss,md,html,json}": [
-      "prettier --config ./.prettierrc.js --write"
+      "prettier --write"
     ]
   },
   "config": {
