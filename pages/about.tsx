@@ -68,7 +68,7 @@ export default function ErrorPage() {
           <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
             <Image
               src={data.profileImage}
-              loading="lazy"
+              priority
               quality={80}
               alt="Andrian Fadhilla"
               width={200}
