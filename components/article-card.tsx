@@ -49,7 +49,6 @@ export default function ArticleCard({
               width={140}
               height={140}
               parentClassName="w-[140px] h-[140px] object-cover rounded-tl-md rounded-bl-md"
-              sizes="(max-width: 614px) 100vw, 614px"
             />
           )}
 

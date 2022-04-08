@@ -68,12 +68,12 @@ export default function ErrorPage() {
           <figure className="relative w-32 h-32 sm:w-44 sm:h-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
             <Image
               src={data.profileImage}
-              prefix="https://res.cloudinary.com/andrianfadhilla/image/upload/"
               quality={80}
               alt="Andrian Fadhilla"
               layout="intrinsic"
               loading="lazy"
-              unoptimized
+              width={200}
+              height={200}
               className="rounded-full w-full h-full"
             />
           </figure>

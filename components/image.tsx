@@ -27,7 +27,7 @@ export default function CustomImage({
         {...options}
         src={src}
         alt={alt}
-        layout="responsive"
+        layout="intrinsic"
         quality={60}
         width={width}
         height={height}

@@ -72,10 +72,12 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
             <Image
               src={data.profileImage}
               quality={80}
+              width={200}
+              height={200}
               alt="Andrian Fadhilla"
               layout="intrinsic"
               loading="eager"
-              unoptimized
+              // unoptimized
               className="rounded-full w-full h-full"
             />
           </figure>
