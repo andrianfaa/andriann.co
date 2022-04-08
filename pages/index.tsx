@@ -18,7 +18,7 @@ interface Props {
   portfolios: PortfolioType[];
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const articles = await Fetch<DefaultApiResponse<ArticleType[]>>('/api/v1/article?limit=4&offset=0', 'get');
   const portfolios = await Fetch<DefaultApiResponse<PortfolioType[]>>('/api/v1/portfolio?limit=4&offset=0', 'get');
 

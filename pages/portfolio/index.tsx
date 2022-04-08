@@ -10,7 +10,7 @@ import { useDebounce } from '@/hooks';
 
 import { FiSearch } from 'react-icons/fi';
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const response = await Fetch<DefaultApiResponse<PortfolioType[]>>('/api/v1/portfolio', 'get');
 
   return {
