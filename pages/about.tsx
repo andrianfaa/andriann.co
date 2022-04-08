@@ -1,9 +1,9 @@
 import React from 'react';
-// import Image from 'next/image';
-import Me from '@/assets/images/me.jpg';
+import Image from 'next/image';
+import Me from '@/assets/images/me.png';
 
 import {
-  Container, SEO, Footer, TimelineCard, NextImage,
+  Container, SEO, Footer, TimelineCard,
 } from '@/components';
 import type { TimelineCardType } from '@/components';
 
@@ -65,25 +65,18 @@ export default function ErrorPage() {
 
       <Container className="fade-up min-h-[400px]">
         <header className="flex flex-col sm:flex-row-reverse justify-start sm:justify-between items-center py-6 sm:min-h-[350px]">
-          {/* <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
+          <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
             <Image
               src={data.profileImage}
-              priority
+              loading="lazy"
+              quality={80}
               alt="Andrian Fadhilla"
               width={200}
               height={200}
-              layout="responsive"
-              className="rounded-full"
+              layout="intrinsic"
+              className="w-32 sm:w-44 rounded-full"
             />
-          </figure> */}
-          <NextImage
-            src={data.profileImage}
-            alt="Andrian Fadhilla"
-            width={200}
-            height={200}
-            imageClassName="rounded-full"
-            parentClassName="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32"
-          />
+          </figure>
 
           {/* Text */}
           <div className="w-full sm:max-w-[500px] text-center sm:text-left">

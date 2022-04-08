@@ -20,6 +20,7 @@ export interface PortfolioType {
   url: string;
   tags: string[];
   categories: string[];
+  date: string;
 }
 
 export interface DefaultApiResponse<T> {
