@@ -2,8 +2,8 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import type { PortfolioType } from '@/app/types';
+import NextImage from './image';
 
 export default function PortfolioCard({
   title,
@@ -16,17 +16,16 @@ export default function PortfolioCard({
     <li className="portfolio-card">
       <Link href={url} passHref>
         <a className="w-full">
-          <figure className="w-full h-full">
-            <Image
-              src={image}
-              alt={title}
-              width={1280}
-              height={720}
-              layout="responsive"
-              className="aspect-video object-cover rounded-tr-md rounded-tl-md"
-              priority
-            />
-          </figure>
+          {/* <figure className="w-full h-full"> */}
+          <NextImage
+            src={image}
+            alt={title}
+            width={614}
+            height={345}
+            imageClassName="object-cover w-full h-full rounded-tr-md rounded-tl-md"
+            parentClassName="w-full h-full"
+          />
+          {/* </figure> */}
 
           <div className="w-full p-4">
             <h3 className="heading-3 line-clamp-2">{title}</h3>

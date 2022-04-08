@@ -1,25 +1,36 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 interface Props {
-  className?: string;
-  src: string;
+  parentClassName?: string;
+  imageClassName?: string;
+  src: string | StaticImageData;
+  width: number;
+  height: number;
+  alt: string;
 }
 
 export default function CustomImage({
-  className,
+  parentClassName,
+  imageClassName,
   src,
+  width,
+  height,
+  alt,
 }: Props): React.ReactElement {
   return (
-    <div className={className}>
+    <figure className={parentClassName}>
       <Image
         src={src}
-        alt="Andrian Fadhilla"
-        layout="fill"
-        quality={90}
-        loading="lazy"
+        alt={alt}
+        layout="intrinsic"
+        quality={60}
+        width={width}
+        height={height}
+        className={`object-cover w-full h-full ${imageClassName}`}
+        loading="eager"
       />
-    </div>
+    </figure>
   );
 }

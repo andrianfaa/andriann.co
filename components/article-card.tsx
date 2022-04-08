@@ -2,9 +2,9 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-
+// import Image from 'next/image';
 import type { ArticleType } from '@/app/types';
+import NextImage from './image';
 
 export default function ArticleCard({
   title,
@@ -20,17 +20,25 @@ export default function ArticleCard({
     <article className="article-card rounded-md">
       <Link href={url} key={slug} passHref>
         <a className="w-full flex items-center">
-          <figure className="aspect-square w-[140px]">
+          {/* <figure className="w-[140px]">
             <Image
               src={image}
               alt={title}
-              width={800}
-              height={800}
-              priority
+              width={400}
+              height={400}
+              quality={80}
+              loading="lazy"
               layout="responsive"
-              className="aspect-square object-cover rounded-tl-md rounded-bl-md"
+              className="w-full h-full object-cover rounded-tl-md rounded-bl-md"
             />
-          </figure>
+          </figure> */}
+          <NextImage
+            src={image}
+            alt={title}
+            width={140}
+            height={140}
+            parentClassName="w-[140px] h-[140px] object-cover rounded-tl-md rounded-bl-md"
+          />
 
           <div id="article-content" className="block flex-1 p-4 relative">
             <h3 className="heading-3">{title}</h3>

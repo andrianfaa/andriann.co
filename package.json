@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "husky install",
-    "lint_staged": "lint-staged"
+    "lint:fix": "next lint --fix",
+    "push": "lint-staged && cz",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.0.0-rc.2",
