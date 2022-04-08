@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { DefaultApiResponse, PortfolioType } from '@/app/types';
-import { apiKey } from '@/middlewares';
+// import { apiKey } from '@/middlewares';
 import { getPortfolio } from '@/helpers';
 
 export default async function Portfolio(
@@ -8,15 +8,15 @@ export default async function Portfolio(
   res: NextApiResponse<DefaultApiResponse<PortfolioType[]>>,
 ): Promise<void> {
   // Step 1: Validate the API key
-  const checkApiKey = await apiKey(req);
+  // const checkApiKey = await apiKey(req);
 
-  if (!checkApiKey) {
-    res.status(401).json({
-      status: 'error',
-      message: 'Missing API key',
-    });
-    return;
-  }
+  // if (!checkApiKey) {
+  //   res.status(401).json({
+  //     status: 'error',
+  //     message: 'Missing API key',
+  //   });
+  //   return;
+  // }
   // End Step 1
 
   // Step 2: Get the articles
@@ -78,12 +78,17 @@ export default async function Portfolio(
   }
 
   // Step 2.2: Get all the articles with limit = 10 and offset = 0
-  const portfolios = await getPortfolio(10, 0);
+  const portfolios: PortfolioType[] = await getPortfolio(10, 0);
 
   res.status(200).json({
     status: 'ok',
     message: 'portfolios fetched successfully',
-    data: portfolios,
+    data: portfolios.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+
+      return dateB.getTime() - dateA.getTime();
+    }) as PortfolioType[],
     total,
   });
 }
