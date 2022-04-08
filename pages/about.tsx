@@ -65,16 +65,16 @@ export default function ErrorPage() {
 
       <Container className="fade-up min-h-[400px]">
         <header className="flex flex-col sm:flex-row-reverse justify-start sm:justify-between items-center py-6 sm:min-h-[350px]">
-          <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
+          <figure className="relative w-32 h-32 sm:w-44 sm:h-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
             <Image
               src={data.profileImage}
-              priority
+              prefix="https://res.cloudinary.com/andrianfadhilla/image/upload/"
               quality={80}
               alt="Andrian Fadhilla"
-              width={200}
-              height={200}
               layout="intrinsic"
-              className="w-32 sm:w-44 rounded-full"
+              loading="lazy"
+              unoptimized
+              className="rounded-full w-full h-full"
             />
           </figure>
 

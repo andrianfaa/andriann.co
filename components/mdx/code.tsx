@@ -19,7 +19,7 @@ export default function Code({
   React.useEffect(() => {
     setCode(Prism.highlight(children, Prism.languages[lang] ?? Prism.languages.javascript, lang));
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [children]);
+  }, [children, className]);
 
   return (
     <code
