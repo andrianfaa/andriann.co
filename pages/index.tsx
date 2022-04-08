@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useCallback } from 'react';
 import { useRouter } from 'next/router';
-// import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Fetch } from '@/utils';
 import {
-  Container, SEO, Footer, ArticleCard, PortfolioCard, NextImage,
+  Container, SEO, Footer, ArticleCard, PortfolioCard,
 } from '@/components';
-import Me from '@/assets/images/me.jpg';
+import Me from '@/assets/images/me.png';
 
 import type { ArticleType, PortfolioType, DefaultApiResponse } from '@/app/types';
 
@@ -68,7 +68,7 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
 
       <Container className="min-h-[400px] fade-up">
         <header className="flex flex-col sm:flex-row-reverse justify-start sm:justify-between items-center py-6 sm:min-h-[350px]">
-          {/* <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
+          <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
             <Image
               src={data.profileImage}
               loading="lazy"
@@ -79,15 +79,15 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
               layout="intrinsic"
               className="w-32 sm:w-44 rounded-full"
             />
-          </figure> */}
-          <NextImage
+          </figure>
+          {/* <NextImage
             src={data.profileImage}
             alt={data.name}
             imageClassName="w-32 sm:w-44 rounded-full"
             parentClassName="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full"
             width={200}
             height={200}
-          />
+          /> */}
 
           {/* Text */}
           <div className="w-full sm:max-w-[500px] text-center sm:text-left">
@@ -119,7 +119,13 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
 
           <div className="article-row mt-4">
             {articles.flatMap((article: ArticleType) => (
-              <ArticleCard key={article.id} {...article} />
+              <ArticleCard
+                key={article.id}
+                options={{
+                  showImage: false,
+                }}
+                {...article}
+              />
             ))}
           </div>
         </Container>
@@ -136,7 +142,13 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
 
           <div className="portfolio-row mt-4">
             {portfolios.flatMap((portfolio: PortfolioType) => (
-              <PortfolioCard key={portfolio.id} {...portfolio} />
+              <PortfolioCard
+                key={portfolio.id}
+                options={{
+                  showImage: false,
+                }}
+                {...portfolio}
+              />
             ))}
           </div>
         </Container>

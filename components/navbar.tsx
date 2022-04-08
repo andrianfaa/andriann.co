@@ -38,7 +38,7 @@ export default function Navbar(): React.ReactElement {
   ];
 
   return (
-    <nav className="border-b border-b-slate-800 fixed z-50 top left-0 w-full bg-slate-900 bg-opacity-50 backdrop-blur-md">
+    <nav className="border-b border-b-slate-800 fixed z-50 top left-0 w-full bg-slate-900 bg-opacity-75 backdrop-blur-md">
       {/* <div className="h-0.5 bg-blue-500 w-full" /> */}
       <Container className="flex items-center py-0 h-[60px]">
         <ul className="flex items-center justify-center gap-2 overflow-x-auto h-[60px] w-full">

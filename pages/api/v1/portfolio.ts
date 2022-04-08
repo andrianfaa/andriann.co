@@ -53,13 +53,13 @@ export default async function Portfolio(
     }
 
     // Step 2.1: Get the articles with limit and offset
-    const portfolios = await getPortfolio(limitNumber, offset ? Number(offset) : 0);
+    const portfolios: PortfolioType[] = await getPortfolio(limitNumber, offset ? Number(offset) : 0);
 
     if (portfolios && portfolios.length > 0) {
       res.status(200).json({
         status: 'ok',
         message: 'Success',
-        data: portfolios,
+        data: portfolios.sort((a, b) => b.date.localeCompare(a.date)),
         total,
       });
       return;

@@ -90,7 +90,13 @@ export default function PortfolioPage({
           {filteredPortfolios.length > 0 ? (
             <ul className="portfolio-row fade-up">
               {filteredPortfolios.map((portfolio: PortfolioType) => (
-                <PortfolioCard key={portfolio.id} {...portfolio} />
+                <PortfolioCard
+                  key={portfolio.id}
+                  options={{
+                    showImage: false,
+                  }}
+                  {...portfolio}
+                />
               ))}
             </ul>
           ) : (

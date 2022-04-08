@@ -88,7 +88,13 @@ export default function Article({ articles }: Props): React.ReactElement {
         {filteredArticles && filteredArticles.length > 0 ? (
           <div className="article-row fade-up">
             {filteredArticles.flatMap((article: ArticleType) => (
-              <ArticleCard key={article.id} {...article} />
+              <ArticleCard
+                key={article.id}
+                options={{
+                  showImage: false,
+                }}
+                {...article}
+              />
             ))}
           </div>
         ) : (

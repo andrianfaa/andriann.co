@@ -24,12 +24,12 @@ export default function CustomImage({
       <Image
         src={src}
         alt={alt}
-        layout="intrinsic"
+        layout="responsive"
         quality={60}
         width={width}
         height={height}
         className={`object-cover w-full h-full ${imageClassName}`}
-        loading="eager"
+        priority
       />
     </figure>
   );
