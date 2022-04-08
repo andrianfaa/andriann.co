@@ -59,7 +59,12 @@ export default async function Portfolio(
       res.status(200).json({
         status: 'ok',
         message: 'Success',
-        data: portfolios.sort((a, b) => b.date.localeCompare(a.date)),
+        data: portfolios.sort((a, b) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+
+          return dateB.getTime() - dateA.getTime();
+        }) as PortfolioType[],
         total,
       });
       return;
