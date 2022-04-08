@@ -25,9 +25,11 @@ export default withPwa({
     return config;
   },
   images: {
-    domains: ['avatars.githubusercontent.com', 'og-image.vercel.app', 'images.unsplash.com'],
+    domains: ['og-image.vercel.app'],
     lazyLoad: true,
-    layoutRaw: true,
+    displaySizes: [350, 450, 640, 768, 1024, 1280, 1440, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 192, 256, 384, 512, 640, 768, 1024, 1280, 1440, 1920],
+    minimumCacheCTL: 60,
   },
   pwa: {
     runtimeCaching,

@@ -22,10 +22,8 @@ export default function ContentHeader({ title, description, imgSrc }: ContentHea
               alt={title}
               width={1280}
               height={720}
-              priority
               className="rounded-md w-full h-fit"
               layout="intrinsic"
-              sizes="(max-width: 1280px) 100vw, 1280px"
             />
           </figure>
         )}

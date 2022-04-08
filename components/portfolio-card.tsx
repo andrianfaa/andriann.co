@@ -33,7 +33,6 @@ export default function PortfolioCard({
               alt={title}
               width={614}
               height={345}
-              sizes="(max-width: 614px) 100vw, 614px"
               imageClassName="object-cover w-full h-full rounded-tr-md rounded-tl-md"
               parentClassName="w-full h-full"
             />
