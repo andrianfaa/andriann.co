@@ -1,14 +1,15 @@
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
+import Me from '@/assets/images/me.jpg';
 
 import {
-  Container, SEO, Footer, TimelineCard,
+  Container, SEO, Footer, TimelineCard, NextImage,
 } from '@/components';
 import type { TimelineCardType } from '@/components';
 
 export default function ErrorPage() {
   const data = {
-    profileImage: 'https://avatars.githubusercontent.com/u/74356783?v=4',
+    profileImage: Me,
     name: 'Andrian Fadhilla',
     role: 'Frontend Developer',
     description: 'I\'m a frontend developer based in Bekasi, Indonesia. I\'m passionate about building web applications with Reactjs',
@@ -64,7 +65,7 @@ export default function ErrorPage() {
 
       <Container className="fade-up min-h-[400px]">
         <header className="flex flex-col sm:flex-row-reverse justify-start sm:justify-between items-center py-6 sm:min-h-[350px]">
-          <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
+          {/* <figure className="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full">
             <Image
               src={data.profileImage}
               priority
@@ -74,7 +75,15 @@ export default function ErrorPage() {
               layout="responsive"
               className="rounded-full"
             />
-          </figure>
+          </figure> */}
+          <NextImage
+            src={data.profileImage}
+            alt="Andrian Fadhilla"
+            width={200}
+            height={200}
+            imageClassName="rounded-full"
+            parentClassName="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32"
+          />
 
           {/* Text */}
           <div className="w-full sm:max-w-[500px] text-center sm:text-left">

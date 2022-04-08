@@ -26,6 +26,8 @@ export default withPwa({
   },
   images: {
     domains: ['avatars.githubusercontent.com', 'og-image.vercel.app', 'images.unsplash.com'],
+    lazyLoad: true,
+    layoutRaw: true,
   },
   pwa: {
     runtimeCaching,
