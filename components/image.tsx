@@ -9,6 +9,7 @@ interface Props {
   width: number;
   height: number;
   alt: string;
+  sizes?: string;
 }
 
 export default function CustomImage({
@@ -18,10 +19,12 @@ export default function CustomImage({
   width,
   height,
   alt,
+  ...options
 }: Props): React.ReactElement {
   return (
     <figure className={parentClassName}>
       <Image
+        {...options}
         src={src}
         alt={alt}
         layout="responsive"
@@ -29,7 +32,6 @@ export default function CustomImage({
         width={width}
         height={height}
         className={`object-cover w-full h-full ${imageClassName}`}
-        priority
       />
     </figure>
   );
