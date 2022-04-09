@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { MDXProvider, useMDXComponents } from '@mdx-js/react';
-import type { AppProps } from 'next/app';
+// import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import MDXComponents from '@/components/mdx';
 
@@ -11,7 +11,7 @@ import { Navbar } from '@/components';
 import LoadingBar, { LoadingBarRef } from 'react-top-loading-bar';
 import UnderDevelopment from '@/components/under-development-alert';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
   const components = useMDXComponents(MDXComponents);
   const router = useRouter();
   const loadingBarRef = useRef<LoadingBarRef>(null);

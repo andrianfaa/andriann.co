@@ -13,7 +13,7 @@ interface Props {
   articles: ArticleType[];
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const response = await Fetch<DefaultApiResponse<ArticleType[]>>('/api/v1/article', 'get');
 
   return {

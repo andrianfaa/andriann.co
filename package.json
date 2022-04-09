@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "push": "git add . && lint-staged && cz",
+    "lint:fix": "eslint --fix",
+    "push": "git add . && lint-staged && cz && git push origin develop",
     "postinstall": "husky install"
   },
   "dependencies": {

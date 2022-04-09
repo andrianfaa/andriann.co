@@ -34,6 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# lock file
-yarn.lock
 package-lock.json
+
+/public/sw.js
+/public/workbox-*.js
