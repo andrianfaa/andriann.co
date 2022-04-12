@@ -5,13 +5,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fetch } from '@/utils';
 import {
-  Container, SEO, Footer, ArticleCard, PortfolioCard,
+  Container,
+  SEO,
+  Footer,
+  ArticleCard,
+  PortfolioCard,
 } from '@/components';
-import Me from '@/assets/images/me.png';
 
-import type { ArticleType, PortfolioType, DefaultApiResponse } from '@/app/types';
+import type {
+  ArticleType,
+  PortfolioType,
+  DefaultApiResponse,
+} from '@/app/types';
 
 import { FiArrowRight } from 'react-icons/fi';
+import Me from '@/assets/images/me.png';
 
 interface Props {
   articles: ArticleType[];
@@ -19,8 +27,14 @@ interface Props {
 }
 
 export async function getStaticProps() {
-  const articles = await Fetch<DefaultApiResponse<ArticleType[]>>('/api/v1/article?limit=4&offset=0', 'get');
-  const portfolios = await Fetch<DefaultApiResponse<PortfolioType[]>>('/api/v1/portfolio?limit=4&offset=0', 'get');
+  const articles = await Fetch<DefaultApiResponse<ArticleType[]>>(
+    '/api/v1/article?limit=4&offset=0',
+    'get',
+  );
+  const portfolios = await Fetch<DefaultApiResponse<PortfolioType[]>>(
+    '/api/v1/portfolio?limit=4&offset=0',
+    'get',
+  );
 
   return {
     props: {
@@ -30,20 +44,26 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ articles, portfolios }: Props): React.ReactElement {
+export default function Home({
+  articles,
+  portfolios,
+}: Props): React.ReactElement {
   const router = useRouter();
 
-  const handleOnClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    router.push('/about');
-  }, [router]);
+  const handleOnClick = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      router.push('/about');
+    },
+    [router],
+  );
 
   const data = {
-    // profileImage: 'https://avatars.githubusercontent.com/u/74356783?v=4',
     profileImage: Me,
     name: 'Andrian Fadhilla',
     role: 'Frontend Developer',
-    description: 'I\'m a frontend developer based in Bekasi, Indonesia. I\'m passionate about building web applications with Reactjs',
+    description:
+      'I\'m a frontend developer based in Bekasi, Indonesia. I\'m passionate about building web applications with Reactjs',
   };
 
   return (
@@ -53,6 +73,8 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
         description={data.description}
         url="https://andriann.co/"
         keywords={[
+          'Andrian',
+          'Fadhilla',
           'Andrian Fadhilla',
           'Andrian Fadhilla Profile',
           'Andrian Fadhilla Portfolio',
@@ -77,26 +99,15 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
               alt="Andrian Fadhilla"
               layout="intrinsic"
               loading="eager"
-              // unoptimized
               className="rounded-full w-full h-full"
             />
           </figure>
-          {/* <NextImage
-            src={data.profileImage}
-            alt={data.name}
-            imageClassName="w-32 sm:w-44 rounded-full"
-            parentClassName="w-32 sm:w-44 mb-4 md:mb-0 md:mr-12 lg:mr-32 rounded-full"
-            width={200}
-            height={200}
-          /> */}
 
           {/* Text */}
           <div className="w-full sm:max-w-[500px] text-center sm:text-left">
-            <h1 className="heading-1 text-gray-100">{data.name}</h1>
-            <h2 className="my-2 text-blue-500 font-semibold">{data.role}</h2>
-            <p className=" md:max-w-[500px]">
-              {data.description}
-            </p>
+            <h1 className="heading-1 text-custom-text-light">{data.name}</h1>
+            <h2 className="my-2 text-primary font-semibold">{data.role}</h2>
+            <p className=" md:max-w-[500px]">{data.description}</p>
 
             <button
               type="button"
@@ -111,10 +122,15 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
         {/* Latest Article */}
         <Container className="px-0">
           <div className="flex items-center justify-between">
-            <h2 className="heading-2 mb-0 text-custom-text-light">Latest Article</h2>
+            <h2 className="heading-2 mb-0 text-custom-text-light">
+              Latest Article
+            </h2>
 
             <Link href="/article" passHref>
-              <a className="hover:text-primary group mb-2">More Article <FiArrowRight className="text-base align-middle inline group-hover:ml-1 transition-all duration-300" /></a>
+              <a className="hover:text-primary group mb-2">
+                More Article{' '}
+                <FiArrowRight className="text-base align-middle inline group-hover:ml-1 transition-all duration-300" />
+              </a>
             </Link>
           </div>
 
@@ -134,10 +150,15 @@ export default function Home({ articles, portfolios }: Props): React.ReactElemen
         {/* Portfolio */}
         <Container className="px-0">
           <div className="flex items-center justify-between">
-            <h2 className="heading-2 mb-0 text-custom-text-light">Latest Portfolio</h2>
+            <h2 className="heading-2 mb-0 text-custom-text-light">
+              Latest Portfolio
+            </h2>
 
             <Link href="/portfolio" passHref>
-              <a className="hover:text-primary group mb-2">View all <FiArrowRight className="text-base align-middle inline group-hover:ml-1 transition-all duration-300" /></a>
+              <a className="hover:text-primary group mb-2">
+                View all{' '}
+                <FiArrowRight className="text-base align-middle inline group-hover:ml-1 transition-all duration-300" />
+              </a>
             </Link>
           </div>
 

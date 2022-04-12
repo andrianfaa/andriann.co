@@ -9,7 +9,7 @@
 @layer base {
   body {
     @apply font-sans text-base;
-    @apply text-custom-text bg-slate-900 leading-relaxed;
+    @apply text-custom-text bg-custom-black leading-relaxed;
   }
 
   button,
@@ -29,13 +29,13 @@
   .btn-primary {
     @apply transition-all duration-300 ease-in-out;
     @apply py-3 px-5 rounded-lg font-medium tracking-tight;
-    @apply bg-primary hover:bg-primary-dark text-white;
+    @apply bg-primary hover:bg-primary-dark text-custom-black;
   }
 
   // Input
   .input-base {
     @apply transition-[border] duration-300;
-    @apply rounded-md border bg-slate-800 border-slate-800 text-custom-text py-3 px-5 hover:border-slate-500 focus:border-slate-500;
+    @apply rounded-md border bg-custom-black border-custom-black-700 text-custom-text py-3 px-5 hover:border-primary focus:border-primary;
   }
 
   // Article
@@ -46,8 +46,8 @@
 
     &-card {
       @apply transition-all duration-300 ease-in-out;
-      @apply border border-slate-800 cursor-pointer w-full flex flex-row items-center;
-      @apply hover:shadow-md hover:border-slate-600;
+      @apply border border-custom-black-700 cursor-pointer w-full flex flex-row items-center;
+      @apply hover:shadow-md hover:border-primary;
 
       @screen sm {
         max-width: calc(100% / 2 - 0.5rem);
@@ -63,8 +63,8 @@
 
     &-card {
       @apply transition-all duration-300 ease-in-out;
-      @apply border border-slate-800 cursor-pointer w-full flex flex-row items-center rounded-md;
-      @apply hover:shadow-md hover:border-slate-600;
+      @apply border border-custom-black-700 cursor-pointer w-full flex flex-row items-center rounded-md;
+      @apply hover:shadow-md hover:border-primary;
 
       > a {
         @apply flex flex-col items-center justify-center;

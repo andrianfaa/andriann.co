@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import Me from '@/assets/images/me.png';
 
 import {
   Container, SEO, Footer, TimelineCard,
 } from '@/components';
 import type { TimelineCardType } from '@/components';
+
+import Me from '@/assets/images/me.png';
 
 export default function ErrorPage() {
   const data = {
@@ -55,6 +56,7 @@ export default function ErrorPage() {
           'About Page',
           'About Me Page',
           'About Page',
+          'About Andrian',
           'Andrian Fadhilla',
           'Andrian Fadhilla Page',
           'Andrian',
@@ -81,7 +83,7 @@ export default function ErrorPage() {
           {/* Text */}
           <div className="w-full sm:max-w-[500px] text-center sm:text-left">
             <h1 className="heading-1">{data.name}</h1>
-            <h2 className="my-2 text-blue-500 font-semibold">{data.role}</h2>
+            <h2 className="my-2 text-primary font-semibold">{data.role}</h2>
             <p className="md:max-w-[500px]">
               {data.description}
             </p>
@@ -96,7 +98,7 @@ export default function ErrorPage() {
             That is my journey in my life.
           </p>
 
-          <ul id="timeline" className="mt-6 flex flex-col border-l border-l-slate-800">
+          <ul id="timeline" className="mt-6 flex flex-col border-l border-l-custom-black-700">
             {timelineData.map((timeline: TimelineCardType) => (
               <TimelineCard key={timeline.title} {...timeline} />
             ))}

@@ -3,8 +3,8 @@
   "app_name": "Andrian Fadhilla Portfolio",
   "short_name": "Andrian Fadhilla",
   "start_url": "/",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
+  "background_color": "#0a0c0f",
+  "theme_color": "#0a0c0f",
   "display": "standalone",
   "scope": "/",
   "icons": [

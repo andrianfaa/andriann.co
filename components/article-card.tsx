@@ -3,7 +3,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Link from 'next/link';
-// import Image from 'next/image';
 import type { ArticleType } from '@/app/types';
 import NextImage from './image';
 
@@ -30,18 +29,6 @@ export default function ArticleCard({
     <article className="article-card rounded-md">
       <Link href={url} key={slug} passHref>
         <a className="w-full flex items-center">
-          {/* <figure className="w-[140px]">
-            <Image
-              src={image}
-              alt={title}
-              width={400}
-              height={400}
-              quality={80}
-              loading="lazy"
-              layout="responsive"
-              className="w-full h-full object-cover rounded-tl-md rounded-bl-md"
-            />
-          </figure> */}
           {options.showImage && (
             <NextImage
               src={image}
