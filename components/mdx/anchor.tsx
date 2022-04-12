@@ -13,7 +13,7 @@ export default function Anchor({
   return (
     <a
       href={href}
-      className="text-primary border-b border-b-slate-700 hover:border-b-primary border-dashed hover:border-solid"
+      className="text-primary border-b border-b-custom-black-700 hover:border-b-primary border-dashed hover:border-solid"
       target="_blank"
       rel="noreferrer noopener"
     >

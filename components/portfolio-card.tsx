@@ -51,7 +51,7 @@ export default function PortfolioCard({
 
             <div id="tags" className="flex flex-row flex-wrap gap-2">
               {tags.map((tag: string) => (
-                <span key={tag} className="inline-flex items-center px-3 py-0.5 rounded-md text-xs font-medium leading-5 bg-gray-100 bg-opacity-10 text-custom-text-light">
+                <span key={tag} className="inline-flex items-center px-3 py-0.5 rounded-md text-xs font-medium leading-5 bg-white bg-opacity-10 text-custom-text-light">
                   {tag}
                 </span>
               ))}

@@ -48,8 +48,8 @@ export function Pre({ children }: PreProps): React.ReactElement {
   }, [isCopied]);
 
   return (
-    <div className="relative rounded-md text-sm bg-slate-800 text-slate-100 mb-4">
-      <div className="bg-slate-700 inline rounded-tl-md px-4 py-1 font-mono font-semibold absolute top-0 left-0 z-10">
+    <div className="relative rounded-md text-sm bg-custom-black-800 text-custom-text mb-4">
+      <div className="bg-custom-black-700 inline rounded-tl-md px-4 py-1 font-mono font-semibold absolute top-0 left-0 z-10">
         {lang}
       </div>
 
@@ -57,7 +57,7 @@ export function Pre({ children }: PreProps): React.ReactElement {
         type="button"
         onClick={handeCopy}
         disabled={isCopied}
-        className="absolute top-0 right-0 mr-2 mt-2 h-10 w-10 rounded-md border border-slate-700 flex items-center justify-center p-0 disabled:opacity-100"
+        className="absolute top-0 right-0 mr-2 mt-2 h-10 w-10 rounded-md border border-custom-black-700 flex items-center justify-center p-0 disabled:opacity-100"
         title="Copy to clipboard"
         aria-label="Copy to clipboard"
       >

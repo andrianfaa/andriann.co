@@ -53,14 +53,14 @@ export default function Footer(): React.ReactElement {
   ];
 
   return (
-    <footer className="footer border-t border-t-slate-800">
+    <footer className="footer border-t border-t-custom-black-700">
       <Container className="p-0">
         <Container id="footer-link-container" className="flex flex-row pb-0 pt-0 md:pt-4">
           <ul className="w-1/2">
             {socialMediaLinks.map((footerLink: FooterLinkType) => (
               <li key={footerLink.title} className="w-full my-4">
                 <Link href={footerLink.href} passHref>
-                  <a className="hover:text-blue-500 my-2 text-sm md:text-base">{footerLink.title}</a>
+                  <a className="hover:text-primary my-2 text-sm md:text-base">{footerLink.title}</a>
                 </Link>
               </li>
             ))}
@@ -70,7 +70,7 @@ export default function Footer(): React.ReactElement {
             {footerLinks.map((footerLink: FooterLinkType) => (
               <li key={footerLink.title} className="w-full my-4">
                 <Link href={footerLink.href} passHref>
-                  <a className="hover:text-blue-500 my-2 text-sm md:text-base">{footerLink.title}</a>
+                  <a className="hover:text-primary my-2 text-sm md:text-base">{footerLink.title}</a>
                 </Link>
               </li>
             ))}
@@ -86,7 +86,7 @@ export default function Footer(): React.ReactElement {
             {' '}
             <BsFillHeartFill className="inline align-middle mx-0.5 w-4 h-4 text-red-500" />
             {' '}
-            by <Link href="/about" passHref><a className="text-blue-500">Andrian Fadhilla</a></Link>
+            by <Link href="/about" passHref><a className="text-primary">Andrian Fadhilla</a></Link>
           </p>
         </Container>
       </Container>

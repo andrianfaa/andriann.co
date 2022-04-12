@@ -14,12 +14,23 @@ module.exports = {
       colors: ({ colors }) => ({
         ...colors,
         primary: {
-          DEFAULT: '#3b82f6',
-          dark: '#1d4ed8',
+          DEFAULT: '#e4ff14',
+          dark: '#C8E012',
         },
         'custom-text': {
-          DEFAULT: '#9ca3af',
-          light: '#f3f4f6',
+          DEFAULT: '#cacccf',
+          light: '#fafcff',
+        },
+        'custom-black': {
+          DEFAULT: '#0a0c0f',
+          800: '#1a1c1f',
+          700: '#2a2c2f',
+          600: '#3a3c3f',
+          500: '#4a4c4f',
+          400: '#5a5c5f',
+          300: '#6a6c6f',
+          200: '#7a7c7f',
+          100: '#8a8c8f',
         },
       }),
     },

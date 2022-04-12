@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import Image from 'next/image';
@@ -13,7 +12,7 @@ export interface ContentHeaderProps {
 
 export default function ContentHeader({ title, description, imgSrc }: ContentHeaderProps): React.ReactElement {
   return (
-    <header className="border-b border-b-slate-800 pb-6 mb-6">
+    <header className="border-b border-b-custom-black-700 pb-6 mb-6">
       <Container className="p-0">
         {imgSrc && (
           <figure className="w-full max-w-lg mx-auto rounded-md mb-6">
@@ -44,7 +43,7 @@ export default function ContentHeader({ title, description, imgSrc }: ContentHea
           />
 
           <div className="ml-4">
-            <span className="block w-full leading-3 text-gray-100">Andrian Fadhilla</span>
+            <span className="block w-full leading-3 text-custom-text-light">Andrian Fadhilla</span>
             <small className="leading-3">@andrianfaa</small>
           </div>
         </div>
