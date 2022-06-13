@@ -1,0 +1,90 @@
+@layer components {
+  .container {
+    @apply lg:max-w-5xl xl:max-w-5xl mx-auto;
+  }
+
+  .navbar {
+    @apply bg-black-900 h-0 overflow-hidden sm:h-[unset] sm:overflow-auto;
+
+    &-container {
+      @apply container flex justify-center items-center h-[70px] sm:h-[100px];
+      @apply sm:justify-between;
+    }
+
+    &-brand {
+      @apply text-black-100 font-semibold text-lg;
+    }
+
+    &-menu {
+      @apply fixed top-0 left-0 z-40 w-full h-0 invisible bg-black-900 list-none overflow-hidden transition-all duration-300 ease-in-out;
+      @apply flex flex-col sm:flex-row justify-center items-center gap-4;
+      @apply sm:static sm:w-auto sm:min-h-[unset] sm:gap-10 sm:visible sm:h-[unset];
+
+      &.active {
+        @apply h-screen visible;
+
+        > li {
+          animation: fadeIn 0.5s ease-in-out forwards;
+        }
+      }
+
+      > li {
+        @apply my-2 opacity-0 transition-all duration-300 ease-in-out;
+        @apply sm:opacity-100;
+
+        > a {
+          @apply font-medium;
+          @apply hover:text-black-100 focus:text-primary;
+
+          &.active {
+            @apply text-primary;
+          }
+        }
+      }
+    }
+
+    &-toggler {
+      @apply fixed z-50 bottom-6 right-6 rounded-full w-14 h-14 flex flex-col items-center justify-center bg-black-100 shadow-lg;
+      @apply sm:hidden;
+
+      &__icon {
+        @apply absolute z-10 block bg-black-900 h-[1.5px] w-8 rounded;
+        @apply transition-all duration-300 ease-in-out;
+
+        &:nth-child(1) {
+          @apply transform -translate-y-1.5;
+        }
+
+        &:nth-child(2) {
+          @apply transform translate-y-1.5;
+        }
+      }
+
+      &.active {
+        > .navbar-toggler__icon {
+          &:nth-child(1) {
+            @apply transform translate-y-0 rotate-[135deg];
+          }
+
+          &:nth-child(2) {
+            @apply transform translate-y-0 rotate-[225deg];
+          }
+        }
+      }
+    }
+  }
+
+  .button {
+    &-base {
+      @apply select-none;
+      @apply bg-black-700 text-black-100 font-medium;
+      @apply hover:bg-black-600 focus:bg-black-600;
+    }
+
+    &-primary {
+      @apply select-none;
+      @apply bg-primary font-medium;
+      @apply hover:bg-primary focus:bg-primary;
+    }
+  }
+}
