@@ -34,4 +34,5 @@ export const projects: ProjectType[] = [
 export const tags: string[] = [
   "React",
   "SASS",
+  "TailwindCSS",
 ];

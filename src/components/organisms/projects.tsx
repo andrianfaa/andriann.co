@@ -6,14 +6,21 @@ import { Image } from "../atoms";
 
 interface ProjectsProps {
   offset?: number;
+  selectedTag?: string;
 }
 
-function Projects({ offset }: ProjectsProps) {
-  const fileteredProjects = dataProjects.slice(0, offset || dataProjects.length);
+function Projects({ offset, selectedTag }: ProjectsProps) {
+  const fileteredProjects = (): ProjectType[] => {
+    if (selectedTag) {
+      return dataProjects.filter(({ tags }) => tags?.includes(selectedTag)).slice(0, offset || dataProjects.length);
+    }
+
+    return dataProjects.slice(0, offset || dataProjects.length);
+  };
 
   return (
     <ul className="flex flex-col gap-8 sm:gap-10">
-      {fileteredProjects.map(({
+      {fileteredProjects().map(({
         id,
         name,
         description,
@@ -51,11 +58,15 @@ function Projects({ offset }: ProjectsProps) {
             </div>
 
             <div id="tags" className="flex items-center flex-wrap gap-2">
-              {tags && tags.map((tag) => (
-                <span key={tag} className="py-2 px-4 rounded button-base text-sm font-medium">
-                  {tag}
-                </span>
-              ))}
+              {tags && tags.map((tag) => {
+                const isSelected = selectedTag && selectedTag.toLowerCase() === tag.toLowerCase();
+
+                return (
+                  <span key={tag} className={`py-2 px-4 rounded button-base text-sm font-medium ${isSelected ? "active" : ""}`}>
+                    {tag}
+                  </span>
+                );
+              })}
             </div>
           </div>
 

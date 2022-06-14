@@ -79,6 +79,10 @@
       @apply select-none;
       @apply bg-black-700 text-black-100 font-medium;
       @apply hover:bg-black-600 focus:bg-black-600;
+
+      &.active {
+        @apply bg-black-600;
+      }
     }
 
     &-primary {
