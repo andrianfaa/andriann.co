@@ -4,7 +4,7 @@ import { BiDownload } from "react-icons/bi";
 import { Button, Image } from "../components/atoms";
 
 function AboutMe() {
-  const profilePict = "https://ik.imagekit.io/lzkn3c9xkpp/Portfolio/unknown-min_7Rg-Hxljb.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1655049632025";
+  const profilePict = "https://ik.imagekit.io/lzkn3c9xkpp/Portfolio/__wKCTYIDLb.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1655294393094";
 
   return (
     <div className="fade-in">
@@ -25,15 +25,15 @@ function AboutMe() {
       </header>
 
       <div className="container px-6 flex flex-col sm:flex-row-reverse">
-        <div className="w-full h-[300px] sm:h-[375px] sm:max-w-[400px]">
+        <section id="my-picture" className="w-full h-[300px] sm:h-[375px] sm:max-w-[400px]">
           <Image
             src={profilePict}
             alt="Profile Picture"
             className="rounded w-full h-full object-cover"
           />
-        </div>
+        </section>
 
-        <div className="w-full pt-6 sm:pr-8 sm:pt-0">
+        <section id="about-me" className="w-full pt-6 sm:pr-8 sm:pt-0">
           <h2 className="font-semibold mb-3 sm:mb-4 text-2xl sm:text-3xl text-black-100">
             Hi There!👋
           </h2>
@@ -59,7 +59,7 @@ function AboutMe() {
               Instagram
             </a>
           </p>
-        </div>
+        </section>
       </div>
 
       <div className="container p-6">
