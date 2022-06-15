@@ -43,7 +43,7 @@ function Footer() {
             <li key={label} className={href === "/" ? "sm:hidden" : ""}>
               <Link href={href} passHref>
                 <a
-                  className={`hover:text-black-100 text-sm font-medium ${router.pathname === href ? "text-primary" : ""}`}
+                  className={`hover:text-black-100 font-medium ${router.pathname === href ? "text-primary" : ""}`}
                 >{label}
                 </a>
               </Link>

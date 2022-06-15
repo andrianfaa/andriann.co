@@ -4,6 +4,8 @@ import type { IconType } from "react-icons";
 import { MdOutlineDoubleArrow } from "react-icons/md";
 import { Button } from "../components/atoms";
 import { ProjectList } from "../components/organisms";
+import type { SEOProps } from "../components/seo";
+import SEO from "../components/seo";
 
 type SocialMediaType = {
   icon: IconType;
@@ -12,6 +14,12 @@ type SocialMediaType = {
 }
 
 function Home() {
+  const SEOData: SEOProps = {
+    title: "Andrian Fadhilla (andrianfaa) - Front-End Web Developer",
+    description: "I'm a User Interface Designer and also a Front-End Developer based in Bekasi, Indonesia. I Love to create beautiful and functional user interfaces using React.js.",
+    url: "https://www.andriann.co",
+  };
+
   const socialMediaLinks: SocialMediaType[] = [
     {
       icon: IoLogoGithub,
@@ -32,6 +40,8 @@ function Home() {
 
   return (
     <div className="fade-in">
+      <SEO data={SEOData} />
+
       <header className="container p-6 min-h-screen sm:min-h-[unset] sm:h-[500px] flex flex-col sm:flex-row items-center justify-center">
         <div className="w-full mb-6">
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-black-100 max-w-3xl font-normal text-center sm:text-left leading-normal md:leading-[56px]">

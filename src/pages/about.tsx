@@ -2,12 +2,24 @@
 /* eslint-disable react/no-unescaped-entities */
 import { BiDownload } from "react-icons/bi";
 import { Button, Image } from "../components/atoms";
+import { TimelineSection } from "../components/organisms";
+import type { SEOProps } from "../components/seo";
+import SEO from "../components/seo";
 
 function AboutMe() {
   const profilePict = "https://ik.imagekit.io/lzkn3c9xkpp/Portfolio/__wKCTYIDLb.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1655294393094";
 
+  const SEOData: SEOProps = {
+    title: "Andrian Fadhilla (andrianfaa) - About Me",
+    description: "I'm a User Interface Designer and also a Front-End Developer based in Bekasi, Indonesia. I Love to create beautiful and functional user interfaces using React.js.",
+    url: "https://www.andriann.co/about",
+    image: "https://ik.imagekit.io/lzkn3c9xkpp/Portfolio/og-images/og-image--about-me___oU8k5Pl.png?ik-sdk-version=javascript-1.4.3&updatedAt=1655090087918",
+  };
+
   return (
     <div className="fade-in">
+      <SEO data={SEOData} />
+
       <header className="container p-6">
         <h1 className="font-display text-4xl sm:text-5xl text-black-100 font-normal text-center leading-normal md:leading-[56px] mb-6 md:mb-10">
           About Me.
@@ -69,6 +81,10 @@ function AboutMe() {
         <p>
           That is my journey in my life.
         </p>
+
+        <div id="spacer" className="my-6" />
+
+        <TimelineSection />
       </div>
     </div>
   );

@@ -7,3 +7,29 @@
 @import "./utilities";
 
 @import "./animations";
+
+#error-page {
+  height: 70vh;
+  @apply flex flex-col items-center justify-center p-6;
+
+  > h1 {
+    @apply text-8xl sm:text-9xl font-extrabold text-black-100 mb-4 relative;
+
+    &::before {
+      content: "404";
+      @apply absolute -z-10 top-2 left-2 text-transparent;
+
+      @supports (-webkit-text-stroke: 1px #fff) {
+        -webkit-text-stroke: 1px #fff;
+      }
+    }
+  }
+
+  > p {
+    @apply mb-4 text-center;
+  }
+
+  > button {
+    @apply rounded;
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "470bcf6b-64c0-4f7c-b26a-42549dafe208",
+    "title": "Freelance Junior Front-End Web Developer",
+    "description": "I started my journey as a freelancer in 2022, working as a Freelance Front-End Web Developer especially in React.js. I work with a team of creative designers and developers to create beautiful and functional user interfaces for clients from different countries.",
+    "date": {
+      "start": "February, 2022",
+      "end": "Present"
+    },
+    "location": "Fusions Visual",
+    "url": "https://fusionsvisual.id/",
+    "logo": "https://media-exp1.licdn.com/dms/image/C560BAQHvt4AT-dpdMw/company-logo_200_200/0/1602097880530?e=2147483647&v=beta&t=Q5QrSsfTo9tYhSj6dffdTkbBr8Ir22aeHNu_OHz4xMU"
+  },
+  {
+    "id": "7eec3f29-31e0-4236-ab24-d671a782a0d7",
+    "title": "Student Internship",
+    "description": "PKL (id: Praktek Kerja Lapangan, en: Field work practice) is a term used to describe a student's work experience in a company. I was working in Pabean Document Administration, BC 2.5 Archiving, and Treasury at KPPBC TMP A Bekasi.",
+    "date": {
+      "start": "January, 2020",
+      "end": "March, 2020"
+    },
+    "location": "Direktorat Jenderal Bea dan Cukai",
+    "url": "https://beacukai.go.id/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lambang_Bea_dan_Cukai.svg/220px-Lambang_Bea_dan_Cukai.svg.png"
+  },
+  {
+    "id": "458c0951-9d99-4ce1-bbcb-626fd4f2e268",
+    "title": "High School Student",
+    "description": "Entering High School as a computer network engineering student, it was a exciting time when I was in High School, learning about the world of computer network and some of the technologies that I was using in my life.",
+    "date": {
+      "start": "June, 2018",
+      "end": "May, 2021"
+    },
+    "location": "SMK Boedi Luhur",
+    "url": "https://yapenhasboediluhur.sch.id",
+    "logo": "https://boediluhur.files.wordpress.com/2017/07/cropped-cropped-logo-boedi-luhur.png?w=240"
+  }
+]
