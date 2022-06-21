@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
+Sitemap: https://www.andriann.co/sitemap.xml
 Disallow:
