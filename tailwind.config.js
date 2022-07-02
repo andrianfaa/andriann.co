@@ -10,7 +10,7 @@ module.exports = {
       colors: ({ colors }) => ({
         ...colors,
         black: {
-          DEFAULT: defaultTheme.colors.black,
+          DEFAULT: "#000000",
           900: "#111111",
           800: "#282A2D",
           700: "#36383B",
@@ -21,7 +21,7 @@ module.exports = {
           200: "#ECEEF1",
           100: "#FAFCFF",
         },
-        primary: "#5eead4",
+        primary: "#BAFF00",
       }),
       fontFamily: {
         ...defaultTheme.fontFamily,
