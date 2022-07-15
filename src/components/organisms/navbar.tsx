@@ -10,6 +10,7 @@ type MenuType = {
   title: string;
   href: string;
   animationDelay?: string;
+  openInNewTab?: boolean;
 }
 
 function Navbar() {
@@ -35,6 +36,7 @@ function Navbar() {
     {
       title: "Blog",
       href: "https://andrianfaa.medium.com/",
+      openInNewTab: true,
       animationDelay: "750ms",
     },
     {
@@ -48,13 +50,18 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container px-6">
         <Link href="/" passHref>
-          <a className="navbar-brand">
+          <a className="navbar-brand" title={router.pathname !== "/" ? "Back to Home" : "Home"}>
             @andrianfaa.
           </a>
         </Link>
 
-        <ul className={`navbar-menu ${isOpen ? "active" : ""}`}>
-          {navbarMenu.map(({ href, title, animationDelay }) => (
+        <ul
+          className={`navbar-menu ${isOpen ? "active" : ""}`}
+          role="menu"
+        >
+          {navbarMenu.map(({
+            href, title, animationDelay, openInNewTab,
+          }) => (
             <li
               key={title.toLowerCase()}
               style={{
@@ -67,6 +74,8 @@ function Navbar() {
                   onClick={() => handleClick(href)}
                   className={router.pathname === href ? "active"
                     : ""}
+                  title={openInNewTab ? `Open ${title} in new tab` : title}
+                  target={openInNewTab ? "_blank" : ""}
                 >
                   {title}
                 </a>
@@ -79,6 +88,8 @@ function Navbar() {
           className={`navbar-toggler ${isOpen ? "active" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
           title="Open menu"
+          aria-label="Open menu"
+          aria-expanded={isOpen}
         >
           <span className="navbar-toggler__icon" />
           <span className="navbar-toggler__icon" />

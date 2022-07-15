@@ -20,7 +20,7 @@ function Image({
         layout="fill"
         blurDataURL={src}
         loading="lazy"
-        placeholder="blur"
+        placeholder="empty"
         className="object-cover w-full h-full"
         // loader={({ src }) => src}
         // unoptimized

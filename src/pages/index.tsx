@@ -18,6 +18,18 @@ function Home() {
     title: "Andrian Fadhilla (andrianfaa) - Front-End Web Developer",
     description: "I'm a User Interface Designer and also a Front-End Developer based in Bekasi, Indonesia. I Love to create beautiful and functional user interfaces using React.js.",
     url: "https://www.andriann.co",
+    keywords: [
+      "Andrian Fadhilla",
+      "andrianfaa",
+      "user interface designer",
+      "UI designer",
+      "front-end developer",
+      "front-end web developer",
+      "bekasi",
+      "indonesia",
+      "react",
+      "react.js",
+    ],
   };
 
   const socialMediaLinks: SocialMediaType[] = [
@@ -46,7 +58,7 @@ function Home() {
         <div className="w-full mb-6">
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-black-100 max-w-3xl font-normal text-center sm:text-left leading-normal md:leading-[56px]">
             <span className="block text-lg md:text-xl font-sans mb-4 font-medium">
-              Hi, I'm Andrian Fadhilla
+              Hi, I'm Andrian Fadhilla{" "}
             </span>
             I'm a {" "}
             <span className="text-primary">

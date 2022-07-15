@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, memo } from "react";
 import { Navbar, Footer } from "./organisms";
 
 interface PageLayoutProps {
@@ -19,4 +19,4 @@ function PageLayout({
   );
 }
 
-export default PageLayout;
+export default memo(PageLayout);
