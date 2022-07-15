@@ -33,7 +33,7 @@ function Footer() {
     <footer className="border-t border-t-black-700 py-6 mt-4">
       <div className="container p-6 text-center flex flex-col sm:flex-row sm:justify-between gap-6">
         <Link href="/" passHref>
-          <a className="font-semibold text-black-100 text-lg">
+          <a className="font-semibold text-black-100 text-lg" title={router.pathname !== "/" ? "Back to Home" : "Home"}>
             @andrianfaa
           </a>
         </Link>
@@ -44,7 +44,9 @@ function Footer() {
               <Link href={href} passHref>
                 <a
                   className={`hover:text-black-100 font-medium ${router.pathname === href ? "text-primary" : ""}`}
-                >{label}
+                  title={label}
+                >
+                  {label}
                 </a>
               </Link>
             </li>
